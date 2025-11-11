@@ -169,7 +169,7 @@
                     <!-- Product 1 -->
                     <div class="product-card bg-white rounded-xl shadow-md overflow-hidden group">
                         <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            <img src="{{ $item->image_url}}"
                                 alt="Casual Shirt"
                                 class="w-full h-64 object-cover group-hover:scale-105 transition duration-300">
                             <div
@@ -199,7 +199,7 @@
                                 <span class="text-gray-500 text-sm ml-2">(128)</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="font-bold text-lg">$49.99</span>
+                                <span class="font-bold text-lg">{{$item->price}}</span>
                                 <button
                                     class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition duration-300">Add
                                     to Cart</button>
