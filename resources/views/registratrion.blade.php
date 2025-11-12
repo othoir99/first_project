@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="registratrion-data" method="post">
+        @csrf
+        <input type="text" name="name" id="name" placeholder="Enter User Name">
         <input type="email" name="email" id="email" placeholder="Enter your E-Mail">
         <input type="password" name="password" id="password" placeholder="Enter Password">
         <button type="submit">Registration</button>
