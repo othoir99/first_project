@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="registratrion-data" method="post">
+    <form action="{{ route('userStore') }}" method="post">
         @csrf
         <input type="text" name="name" id="name" placeholder="Enter User Name">
         <input type="email" name="email" id="email" placeholder="Enter your E-Mail">
