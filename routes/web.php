@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', function () {
     $products = Product::all();
@@ -39,41 +40,21 @@ Route::post('/registratrion-user', function (Request $request) {
 
 })->name('userStore');
 
+
+
+
+
+
+/**
+ * Admin Pages
+ */
+
 // Product create routes
-Route::get('/producte-create', function () {
-    return view('product-create');
-});
+Route::get('/producte-create', ProductController::class . '@create')->name('productCreate');
 
-Route::post('/product-store', function (Request $request) {
-    // dd($request->toArray());
-    $productName = $request['product_name'];
-    $productImage = $request['product_image_url'];
-    $productPrice = $request['product_price'];
+Route::post('/product-store', ProductController::class . '@store')->name('productStore');
 
-    Product::create(
-        [
-            'name' => $productName,
-            'image_url' => $productImage,
-            'price' => $productPrice,
-        ]
-    );
-})->name('productStore');
 
-// categories route
-Route::get('/categories-create', function () {
-    return view('categories-create');
-});
-Route::post('/categories-store', function (Request $request) {
-    // dd($request->toArray());
-    $categoriesName = $request['categories_name'];
-    $categoriesImage = $request['categories_image_url'];
-
-    Catagory::create(
-        ['name' => $categoriesName,
-            'image_url' => $categoriesImage,
-        ]
-
-    );
-    dd('$categories_name');
-
-})->name('categoriesStore');
+// categories routes
+Route::get('/categories-create', CategoriesController::class . '@create')->name('categoriesCreate');
+Route::post('/categories-store', CategoriesController::class . '@store')->name('categoriesStore');
